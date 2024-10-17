@@ -7,6 +7,7 @@ ob_start();
 <table>
     <thead>
         <tr>
+            <th>#</th>
             <th>Placa</th>
             <th>Marca</th>
             <th>Conductor</th>
@@ -14,8 +15,9 @@ ob_start();
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($reports as $report): ?>
+        <?php foreach ($reports as $key => $report): ?>
         <tr>
+            <td><?= htmlspecialchars($key + 1 ) ?></td>
             <td><?= htmlspecialchars($report['plate']) ?></td>
             <td><?= htmlspecialchars($report['brand']) ?></td>
             <td><?= htmlspecialchars($report['driver_name']) ?></td>

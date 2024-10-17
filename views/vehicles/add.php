@@ -14,29 +14,56 @@
         <input type="text" id="plate" name="plate" required>
 
         <label for="color">Color:</label>
-        <input type="text" id="color" name="color" required>
+        <select id="color" name="color" required>
+            <option value="" disabled selected>Seleccione un color</option>
+            <option value="rojo">Rojo</option>
+            <option value="azul">Azul</option>
+            <option value="negro">Negro</option>
+            <option value="blanco">Blanco</option>
+            <option value="gris">Gris</option>
+            <option value="plata">Plata</option>
+            <option value="verde">Verde</option>
+            <option value="amarillo">Amarillo</option>
+        </select>
 
         <label for="brand">Marca:</label>
-        <input type="text" id="brand" name="brand" required>
+        <select id="brand" name="brand" required>
+            <option value="" disabled selected>Seleccione una marca</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Chevrolet">Chevrolet</option>
+            <option value="Ford">Ford</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Kia">Kia</option>
+            <option value="Mazda">Mazda</option>
+            <option value="Renault">Renault</option>
+        </select>
 
         <label for="type">Tipo:</label>
         <select id="type" name="type" required>
+            <option value="" disabled selected>Seleccione el tipo de vehiculo</option>
             <option value="particular">Particular</option>
             <option value="publico">Público</option>
         </select>
-
+        
         <label for="driver_id">Conductor:</label>
-        <select id="driver_id" name="driver_id" required>
+        <select id="driver_id" name="driver_id" >
+            <option value="" disabled selected>Seleccione el conductor (opcional)</option>
             <?php
             $drivers = Driver::getAll();
-            foreach ($drivers as $driver) {
-                echo "<option value='{$driver['id']}'>{$driver['first_name']} {$driver['last_name']}</option>";
-            }
+            if(isset($drivers)) {
+                foreach ($drivers as $driver) {
+                        echo "<option value='{$driver['id']}'>{$driver['first_name']} {$driver['last_name']}</option>";
+                    }
+                }
             ?>
         </select>
-
+        
         <label for="owner_id">Propietario:</label>
         <select id="owner_id" name="owner_id" required>
+            <option value="" disabled selected>Seleccione propietario (opcional)</option>
             <?php
             $owners = Owner::getAll();
             foreach ($owners as $owner) {

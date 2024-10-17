@@ -29,7 +29,19 @@
         <input type="text" id="phone" name="phone" required>
 
         <label for="city">Ciudad:</label>
-        <input type="text" id="city" name="city" required>
+        <select id="city" name="city" required>
+            <option value="" disabled selected>Seleccione una ciudad</option>
+            <option value="Bogotá">Bogotá</option>
+            <option value="Medellín">Medellín</option>
+            <option value="Cali">Cali</option>
+            <option value="Barranquilla">Barranquilla</option>
+            <option value="Cartagena">Cartagena</option>
+            <option value="Cúcuta">Cúcuta</option>
+            <option value="Bucaramanga">Bucaramanga</option>
+            <option value="Pereira">Pereira</option>
+            <option value="Santa Marta">Santa Marta</option>
+            <option value="Ibagué">Ibagué</option>
+        </select>
 
         <button type="submit">Agregar Conductor</button>
     </form>

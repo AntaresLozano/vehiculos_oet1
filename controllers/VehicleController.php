@@ -1,5 +1,7 @@
 <?php
 require_once 'models/Vehicle.php';
+require_once 'models/Driver.php';
+require_once 'models/Owner.php';
 
 $action = $_GET['subaction'] ?? 'list';
 
@@ -17,6 +19,7 @@ switch ($action) {
                 $error = "Error al agregar el vehículo";
             }
         }
+        // $drivers = Driver::getAll();
         include 'views/vehicles/add.php';
         break;
     case 'edit':
