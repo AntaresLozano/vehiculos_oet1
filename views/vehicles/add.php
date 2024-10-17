@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Vehículo</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+<?php
+$pageTitle = 'Agregar Vehículo';
+ob_start();
+?>
+<?php if (isset($error)) echo displayError($error); ?>
+<div class="add-form">
     <h1>Agregar Vehículo</h1>
-    <?php if (isset($error)) echo displayError($error); ?>
     <form action="index.php?action=vehicles&subaction=add" method="post">
         <label for="plate">Placa:</label>
         <input type="text" id="plate" name="plate" required>
@@ -47,20 +43,20 @@
             <option value="particular">Particular</option>
             <option value="publico">Público</option>
         </select>
-        
+
         <label for="driver_id">Conductor:</label>
-        <select id="driver_id" name="driver_id" >
+        <select id="driver_id" name="driver_id">
             <option value="" disabled selected>Seleccione el conductor (opcional)</option>
             <?php
             $drivers = Driver::getAll();
-            if(isset($drivers)) {
+            if (isset($drivers)) {
                 foreach ($drivers as $driver) {
-                        echo "<option value='{$driver['id']}'>{$driver['first_name']} {$driver['last_name']}</option>";
-                    }
+                    echo "<option value='{$driver['id']}'>{$driver['first_name']} {$driver['last_name']}</option>";
                 }
+            }
             ?>
         </select>
-        
+
         <label for="owner_id">Propietario:</label>
         <select id="owner_id" name="owner_id" required>
             <option value="" disabled selected>Seleccione propietario (opcional)</option>
@@ -75,5 +71,7 @@
         <button type="submit">Agregar Vehículo</button>
     </form>
     <a href="index.php?action=vehicles">Volver a la lista</a>
-</body>
-</html>
+    <?php
+    $content = ob_get_clean();
+    include 'views/layout.php';
+    ?>

@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Conductor</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+<?php
+$pageTitle = 'Agregar Vehículo';
+ob_start();
+?>
+<?php if (isset($error)) echo displayError($error); ?>
+<div class="add-form">
     <h1>Agregar Conductor</h1>
-    <?php if (isset($error)) echo displayError($error); ?>
     <form action="index.php?action=drivers&subaction=add" method="post">
         <label for="cedula">Cédula:</label>
         <input type="text" id="cedula" name="cedula" required>
@@ -46,5 +42,8 @@
         <button type="submit">Agregar Conductor</button>
     </form>
     <a href="index.php?action=drivers">Volver a la lista</a>
-</body>
-</html>
+</div>
+<?php
+$content = ob_get_clean();
+include 'views/layout.php';
+?>

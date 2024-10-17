@@ -4,7 +4,7 @@ ob_start();
 ?>
 
 <h1>Lista de Conductores</h1>
-<a href="index.php?action=drivers&subaction=add">Agregar Conductor</a>
+<a class="add" href="index.php?action=drivers&subaction=add">Agregar Conductor</a>
 <table>
     <thead>
         <tr>

@@ -4,6 +4,7 @@ ob_start();
 ?>
 
 <h1>Informe de Vehículos</h1>
+<a class="add" href="index.php?action=export&subaction=export">Exportar a PDF</a>
 <table>
     <thead>
         <tr>
@@ -17,7 +18,7 @@ ob_start();
     <tbody>
         <?php foreach ($reports as $key => $report): ?>
         <tr>
-            <td><?= htmlspecialchars($key + 1 ) ?></td>
+            <td><?= htmlspecialchars($key + 1) ?></td>
             <td><?= htmlspecialchars($report['plate']) ?></td>
             <td><?= htmlspecialchars($report['brand']) ?></td>
             <td><?= htmlspecialchars($report['driver_name']) ?></td>

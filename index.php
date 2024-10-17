@@ -20,6 +20,9 @@ switch ($action) {
     case 'reports':
         include 'controllers/ReportController.php';
         break;
+    case 'export':
+        include 'controllers/ReportController.php';
+        break;
     default:
         include 'views/404.php';
         break;

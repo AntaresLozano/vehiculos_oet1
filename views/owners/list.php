@@ -4,7 +4,7 @@ ob_start();
 ?>
 
 <h1>Lista de Propietarios</h1>
-<a href="index.php?action=owners&subaction=add">Agregar Propietario</a>
+<a class="add" href="index.php?action=owners&subaction=add">Agregar Propietario</a>
 <table>
     <thead>
         <tr>

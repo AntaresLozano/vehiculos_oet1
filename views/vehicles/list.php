@@ -4,7 +4,7 @@ ob_start();
 ?>
 
 <h1>Lista de Vehículos</h1>
-<a href="index.php?action=vehicles&subaction=add">Agregar Vehículo</a>
+<a class="add" href="index.php?action=vehicles&subaction=add">Agregar Vehículo</a>
 <table>
     <thead>
         <tr>

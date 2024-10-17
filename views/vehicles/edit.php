@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Vehículo</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+<?php
+$pageTitle = 'Agregar Vehículo';
+ob_start();
+?>
+<?php if (isset($error)) echo displayError($error); ?>
+<div class="add-form">
     <h1>Editar Vehículo</h1>
-    <?php if (isset($error)) echo displayError($error); ?>
     <form action="index.php?action=vehicles&subaction=edit&id=<?= $vehicle['id'] ?>" method="post">
         <label for="plate">Placa:</label>
         <input type="text" id="plate" name="plate" value="<?= htmlspecialchars($vehicle['plate']) ?>" required>
@@ -50,5 +46,8 @@
         <button type="submit">Actualizar Vehículo</button>
     </form>
     <a href="index.php?action=vehicles">Volver a la lista</a>
-</body>
-</html>
+</div>
+<?php
+$content = ob_get_clean();
+include 'views/layout.php';
+?>
